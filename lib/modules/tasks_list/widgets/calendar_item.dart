@@ -5,9 +5,13 @@ class CalendarItem extends StatelessWidget {
   final DateTime selectedDate;
   final void Function(DateTime) onDateSelected;
 
-  const CalendarItem(
-      {Key? key, required this.selectedDate, required this.onDateSelected})
-      : super(key: key);
+  const CalendarItem({
+    Key? key,
+    required this.selectedDate,
+    required this.onDateSelected,
+  }) : super(
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context) {

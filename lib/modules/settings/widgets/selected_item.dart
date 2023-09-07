@@ -19,7 +19,7 @@ class SelectedItem extends StatelessWidget {
           12,
         ),
         border: Border.all(
-          color: Colors.white,
+          color: theme.cardColor,
         ),
       ),
       child: Row(
@@ -28,12 +28,12 @@ class SelectedItem extends StatelessWidget {
           Text(
             option,
             style: theme.textTheme.displayLarge!.copyWith(
-              color: Colors.white,
+              color: theme.cardColor,
             ),
           ),
-          const Icon(
+          Icon(
             Icons.check,
-            color: Colors.white,
+            color: theme.cardColor,
           ),
         ],
       ),
