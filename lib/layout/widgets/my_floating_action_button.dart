@@ -18,8 +18,8 @@ class MyFloatingActionButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(
           100,
         ),
-        side: const BorderSide(
-          color: Colors.white,
+        side: BorderSide(
+          color: theme.canvasColor,
           width: 3,
         ),
       ),

@@ -1,8 +1,12 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_application/core/helpers.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_application/modules/login/login_view.dart';
 
+import '../../business_logic/provider.dart';
+import '../../core/helpers.dart';
 import '../../layout/home_layout.dart';
 
 class SplashView extends StatefulWidget {
@@ -22,22 +26,30 @@ class _SplashViewState extends State<SplashView> {
           seconds: 2,
         ), () {
       context.pushReplacementNamed(
-        HomeLayout.routeName,
+        FirebaseAuth.instance.currentUser != null
+            ? HomeLayout.routeName
+            : LoginView.routeName,
       );
     });
     super.initState();
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(
+    BuildContext context,
+  ) {
+    var provider = Provider.of<SettingsProvider>(
+      context,
+    );
     return Container(
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-        image: AssetImage(
-          'assets/images/light_splash.png',
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+            provider.changeSplashScreen(),
+          ),
+          fit: BoxFit.fill,
         ),
-        fit: BoxFit.fill,
-      )),
+      ),
       child: const Scaffold(
         backgroundColor: Colors.transparent,
       ),

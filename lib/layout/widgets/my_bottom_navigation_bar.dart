@@ -19,7 +19,6 @@ class MyBottomNavigationBar extends StatelessWidget {
   Widget build(
     BuildContext context,
   ) {
-    // var lang = AppLocalizations.of(context);
     return BottomAppBar(
       height: context.screenHeight * .09,
       notchMargin: 8,

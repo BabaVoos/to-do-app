@@ -29,15 +29,37 @@ class MySettingsButton extends StatelessWidget {
       child: InkWell(
         onTap: () {
           showBottomSheet(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(20),
+                topLeft: Radius.circular(20),
+              ),
+            ),
             context: context,
             builder: (context) => BottomSheet(
-              backgroundColor: theme.primaryColor,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(20),
+                  topLeft: Radius.circular(20),
+                ),
+              ),
+              backgroundColor: theme.canvasColor,
               enableDrag: false,
               onClosing: () {},
               builder: (context) => Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 20,
                   vertical: 40,
+                ),
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(
+                      20,
+                    ),
+                    topRight: Radius.circular(
+                      20,
+                    ),
+                  ),
                 ),
                 width: double.infinity,
                 height: context.screenHeight / 3,
@@ -50,12 +72,12 @@ class MySettingsButton extends StatelessWidget {
                     ),
                     const SizedBox(
                       height: 20,
-                    ),
-                    InkWell(onTap: secondOptionOnTap, child: secondOption),
-                  ],
+                            ),
+                            InkWell(onTap: secondOptionOnTap, child: secondOption),
+                          ],
+                        ),
+                      ),
                 ),
-              ),
-            ),
           );
         },
         child: Container(
